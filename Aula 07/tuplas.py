@@ -1,7 +1,6 @@
-carros = ("Fusca","Civic","Corolla")
+carros = ("Fusca", "Civic", "Corolla")
 
 print(carros[0])
-carros[0] = "Ferrari"
+carros = ("Ferrari",) + carros[1:]
 print(carros)
-carros = carros + ("Ferrari,")
 print(carros[2:])

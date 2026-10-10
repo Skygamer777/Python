@@ -1,17 +1,17 @@
-import os
 import json
+from pathlib import Path
 
-arquivo_JSON = "nomes.JSON"
+arquivo_json = Path(__file__).resolve().parent / 'nomes.JSON'
 
-if not os.path.exists(arquivo_JSON):
-    with open(arquivo_JSON, "w", encoding='utf-8') as arquivo:
-        json.dump([], arquivo) 
-    print(f"Arquivo '{arquivo_JSON}' criado com uma lista vazia")
-with open(arquivo_JSON, "r",encoding='utf-8') as arquivo:
+if not arquivo_json.exists():
+    with arquivo_json.open('w', encoding='utf-8') as arquivo:
+        json.dump([], arquivo, ensure_ascii=False, indent=4)
+    print(f"Arquivo '{arquivo_json.name}' criado com uma lista vazia")
+
+with arquivo_json.open('r', encoding='utf-8') as arquivo:
     nomes = json.load(arquivo)
-    
+
 if not nomes:
-    print("Lista de nomes vazia.")
+    print('Lista de nomes vazia.')
 else:
-    print("Nomes encontrados: ",nomes)
-    
+    print('Nomes encontrados:', nomes)

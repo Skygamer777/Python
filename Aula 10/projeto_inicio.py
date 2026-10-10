@@ -1,4 +1,4 @@
-class UsurioSistema():
+class UsuarioSistema:
     usuarios = ["Pietryk","Judy"]
     
     @classmethod
@@ -16,8 +16,8 @@ class UsurioSistema():
     def update(cls):
         cls.read()
         indice = int(input("Digite o número do usuário que deseja atualizar: ")) - 1
-        if 9 <= indice < len(cls.usuarios):
-            novo_nome = input(f"Digite o noo nome para {cls.usuarios[indice]}: ")
+        if 0 <= indice < len(cls.usuarios):
+            novo_nome = input(f"Digite o novo nome para {cls.usuarios[indice]}: ")
             cls.usuarios[indice] = novo_nome
             print(f"Usuário atualizado para {novo_nome} com sucesso")
         else:
@@ -45,15 +45,18 @@ def menu():
         opcao = int(input("Digite o número da opção desejada: "))
         
         if opcao == 1:
-            UsurioSistema.create()
+            UsuarioSistema.create()
         elif opcao == 2:
-            UsurioSistema.read()
+            UsuarioSistema.read()
         elif opcao == 3:
-            UsurioSistema.update()
+            UsuarioSistema.update()
+        elif opcao == 4:
+            UsuarioSistema.delete()
         elif opcao == 5:
-            UsurioSistema.delete()
+            print("Encerrando o sistema.")
         else:
             print("Opção Inválida. Tente Novamente.")
 ## -- Início -- ##
-menu()        
+if __name__ == "__main__":
+    menu()
         

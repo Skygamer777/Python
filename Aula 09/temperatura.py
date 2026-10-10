@@ -24,7 +24,7 @@ while opcao != "3":
         elif opcao == '2':
             resultado = fahrenheit_para_celsius(temperatura)
             print(f"{temperatura} °F é igual a {resultado} °C")
-        else:
-            print("Opção inválida. Tente novamente.")
+    else:
+        print("Opção inválida. Tente novamente.")
             
         

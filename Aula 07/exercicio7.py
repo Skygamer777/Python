@@ -21,5 +21,4 @@ nota3_1,nota3_2,nota3_3,nota3_4 = notas_aluno3
 print(f"Notas de {nome3}: {nota3_1}, {nota3_2}, {nota3_3}, {nota3_4}")
 print(f"Menor nota do {nome1}: ",min(notas_aluno1))
 print(f"Maior nota do {nome2}: ",max(notas_aluno2))
-print(f"Menor nota do {nome3}: ",sum(notas_aluno3))
-
+print(f"Menor nota do {nome3}: ",min(notas_aluno3))

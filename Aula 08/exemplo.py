@@ -10,5 +10,5 @@ print("Informações sobre a fruta: ",info_fruta)
 print("Frutas fora de estoque: ",frutas_fora_de_estoque)
 print("Estoque atualizado: ",estoque)
 
-print("Preço da banana: ",estoque["Banana"]["Quantidade"])
+print("Preço da banana: ",estoque["Banana"]["preco"])
 print("Quantidade da banana: ",estoque["Banana"]["Quantidade"])

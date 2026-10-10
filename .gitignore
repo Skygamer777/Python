@@ -1,0 +1,9 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+/Aula 13/exercicio13/dados/
+/Aula 13/projeto_pt3/dados/
+/projeto_pt2_FEITO/dados/
+/crud/nomes.json
+/exercicio13/dados/

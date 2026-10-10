@@ -1,35 +1,60 @@
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 from models.usuarioSistema import UsuarioSistema
 
+
+def exibir_menu():
+    print('\nEscolha uma opção:')
+    print('1 - Cadastrar Usuário')
+    print('2 - Ler Usuários')
+    print('3 - Atualizar Usuário')
+    print('4 - Deletar Usuário')
+    print('5 - Sair')
+
+
+def processar_opcao(sistema, opcao):
+    if opcao == 1:
+        sistema.create()
+        return True
+    if opcao == 2:
+        sistema.read()
+        return True
+    if opcao == 3:
+        sistema.update()
+        return True
+    if opcao == 4:
+        sistema.delete()
+        return True
+    if opcao == 5:
+        print('Encerrando o sistema.')
+        return False
+
+    print('Opção inválida. Tente novamente.')
+    return True
+
+
 def menu():
-    sistema = UsuarioSistema()  # Não passa a lista inicial, pois a classe carrega do arquivo
-
+    try:
+        sistema = UsuarioSistema()
+    except (OSError, ValueError) as erro:
+        print(f'Não foi possível carregar os usuários: {erro}')
+        return
     opcao = 0
-    while opcao != 5:
-        print("\nEscolha uma opção:")
-        print("1 - Cadastrar Usuário")
-        print("2 - Ler Usuários")
-        print("3 - Atualizar Usuário")
-        print("4 - Deletar Usuário")
-        print("5 - Sair")
 
+    while opcao != 5:
+        exibir_menu()
         try:
-            opcao = int(input("Digite o número da opção desejada: "))
+            opcao = int(input('Digite o número da opção desejada: '))
         except ValueError:
-            print("Por favor, insira um número válido.")
+            print('Por favor, insira um número válido.')
             continue
 
-        if opcao == 1:
-            sistema.create()
-        elif opcao == 2:
-            sistema.read()
-        elif opcao == 3:
-            sistema.update()
-        elif opcao == 4:
-            sistema.delete()
-        elif opcao == 5:
-            print("Encerrando o sistema.")
-        else:
-            print("Opção inválida. Tente novamente.")
+        if not processar_opcao(sistema, opcao):
+            break
 
-if __name__ == "__main__":
+
+if __name__ == '__main__':
     menu()

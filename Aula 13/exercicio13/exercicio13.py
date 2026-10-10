@@ -1,13 +1,13 @@
-import os
 import json
+from pathlib import Path
 
-if not os.path.exists('exercicio13/dados'):
-    os.makedirs('exercicio13/dados')
-    frutas = ["Banana","Maçã","Melancia","Abacate"]
-    
-caminho_arquivo = os.path.join('exercicio13/dados','frutas.json')
+frutas = ['Banana', 'Maçã', 'Melancia', 'Abacate']
+caminho_pasta = Path(__file__).resolve().parent / 'dados'
+caminho_arquivo = caminho_pasta / 'frutas.json'
 
-with open(caminho_arquivo, 'w', encoding="utf-8") as arquivo_json:
-    json.dump(frutas,arquivo_json, ensure_ascii=False, indent=4)
+caminho_pasta.mkdir(parents=True, exist_ok=True)
 
-print(f"Arquivo {caminho_arquivo} criado com sucesso!")
+with caminho_arquivo.open('w', encoding='utf-8') as arquivo_json:
+    json.dump(frutas, arquivo_json, ensure_ascii=False, indent=4)
+
+print(f'Arquivo {caminho_arquivo} criado com sucesso!')
