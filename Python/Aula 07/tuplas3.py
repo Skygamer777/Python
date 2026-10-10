@@ -1,0 +1,12 @@
+tupla = (1,2,3,4,5)
+
+print(tupla.count(2))
+print(tupla.index(2))
+print(len(tupla))
+print(max(tupla))
+print(min(tupla))
+print(sum(tupla))
+print(any(tupla))
+print(all(tupla))
+print(sorted(tupla))
+print(list(reversed(tupla)))
